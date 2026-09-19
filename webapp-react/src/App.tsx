@@ -9,3 +9,4 @@ export default function App() {
   if (data.status === 'error') return <Loader error={data.message} />
   return <GraphExplorer model={data.model} />
 }
+
