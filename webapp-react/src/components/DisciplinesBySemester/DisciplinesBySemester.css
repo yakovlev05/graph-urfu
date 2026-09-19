@@ -1,0 +1,47 @@
+.disciplines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.disciplines h4 {
+  margin: 0 0 3px;
+  font: 600 10.5px var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.disciplines ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.disciplines li {
+  position: relative;
+  padding-left: 12px;
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.disciplines li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.55em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #c084fc;
+}
+
+.disciplines__more {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}

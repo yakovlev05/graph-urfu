@@ -1,0 +1,93 @@
+.app {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(56, 189, 248, 0.1), transparent 45%),
+    radial-gradient(circle at 80% 85%, rgba(244, 114, 182, 0.1), transparent 45%),
+    radial-gradient(circle at 50% 50%, #0d1024, var(--bg) 75%);
+}
+
+.app::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+.app--pointer canvas {
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.overlay--top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.overlay--top-right {
+  top: 20px;
+  right: 20px;
+  align-items: flex-end;
+}
+
+.overlay--bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+.overlay--bottom-center {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 720px) {
+  .overlay--bottom-left {
+    display: none;
+  }
+
+  .overlay--bottom-center {
+    bottom: auto;
+    top: 20px;
+    left: auto;
+    right: 20px;
+    transform: none;
+  }
+
+  .overlay--top-left {
+    display: none;
+  }
+
+  .overlay--top-right {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+
+  .overlay--top-right > * {
+    width: auto;
+  }
+
+  .overlay--top-right .search-results {
+    top: auto;
+    bottom: calc(100% + 8px);
+  }
+
+  .overlay--top-right .node-panel {
+    max-height: 50vh;
+  }
+}

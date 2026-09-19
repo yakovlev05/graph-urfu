@@ -1,0 +1,5 @@
+*
+!webapp-react
+!prepare-data/graph_data.json
+webapp-react/node_modules
+webapp-react/dist
