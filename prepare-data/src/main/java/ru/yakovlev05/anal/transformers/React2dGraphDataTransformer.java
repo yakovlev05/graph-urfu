@@ -38,14 +38,16 @@ public class React2dGraphDataTransformer {
     }
 
     private static List<Node> buildNodes(StudentsByDiscipline data, Map<String, Integer> studentToId) {
-        Map<String, Set<String>> studentRealizations = new HashMap<>();
+        Map<String, Set<CommonGroup>> studentRealizations = new HashMap<>();
         for (Semester semester : data.semesters()) {
             for (Course course : semester.courses()) {
                 for (Realization realization : course.realizations()) {
+                    CommonGroup studentRealization = new CommonGroup(semester.semester(), realization.realization());
+
                     for (Group group : realization.groups()) {
                         for (String student : group.students()) {
                             studentRealizations.computeIfAbsent(student, s -> new LinkedHashSet<>())
-                                    .add(realization.realization());
+                                    .add(studentRealization);
                         }
                     }
                 }
